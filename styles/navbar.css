@@ -1,0 +1,37 @@
+nav {
+	z-index: 10;
+	position: sticky;
+	top: 0;
+
+	transition: 0.3s ease-in-out;
+}
+
+nav .nav-layout {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+
+}
+
+nav .logo {
+	height: 5rem;
+}
+
+nav .nav-links {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+nav .nav-links a{
+	text-decoration: none;
+	color: white;
+}
+
+nav .nav-links a:hover{
+	text-decoration: underline;
+}
+
+nav .open-sidebar {
+	color: white;
+}

@@ -4,6 +4,7 @@
 	top: 0;
 
 	font-weight: 900;
+	transition: 0.4s ease-in-out;
 }
 
 #navbar .nav-layout {
@@ -11,7 +12,7 @@
 	font-size: 1rem;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 1.5rem;
+	padding: 0 2rem;
 }
 
 #navbar.scrolled {
@@ -29,9 +30,7 @@
 }
 
 #navbar .logo-main {
-
-	height: 100px;
-	margin: 1rem 0 1rem 1rem;
+	height: 85px;
 }
 
 #navbar .icon {

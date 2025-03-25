@@ -18,6 +18,8 @@
 	--button-underline-size: 3px;
 	--button-scale-factor: 1.2;
 
+	--gradient-one: linear-gradient(0deg, rgba(30, 30, 30, 1) 50%, rgba(0, 0, 0, 1) 80%);
+	--gradient-two: linear-gradient(0deg, rgba(30, 30, 30, 1) 80%, rgba(0, 0, 0, 1) 100%);
 }
 
 ::selection {
@@ -30,6 +32,9 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+
+	-webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 html {
@@ -42,18 +47,6 @@ html {
 	font-weight: var(--font-weight);
 	font-style: normal;
 	font-variation-settings: "wdth" 100;
-}
-
-
-button {
-	-webkit-tap-highlight-color: transparent;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-
-a {
-	-webkit-tap-highlight-color: transparent;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /*#hakkimizda, #hizmetlerimiz, #iletisim, .nav-layout {

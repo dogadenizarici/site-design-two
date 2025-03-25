@@ -168,6 +168,8 @@ rightButton.addEventListener('click', () => {
 	}
 });
 
+
+// ############### SCROLLER ###############
 /*
  * Infinite scroller part
  */

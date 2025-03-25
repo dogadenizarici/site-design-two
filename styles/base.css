@@ -44,6 +44,18 @@ html {
 	font-variation-settings: "wdth" 100;
 }
 
+
+button {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+a {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 /*#hakkimizda, #hizmetlerimiz, #iletisim, .nav-layout {
 	max-width: 1300px;
 	margin: 0 auto;

@@ -43,7 +43,7 @@
 #navbar .icon:hover {
 	height: 30px;
 	fill: var(--color-hover);
-	scale: 1.2;
+	scale: var(--button-scale-factor);
 }
 
 #navbar #sidebar-active {

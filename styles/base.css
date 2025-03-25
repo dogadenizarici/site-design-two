@@ -1,11 +1,27 @@
 :root {
-	--highlight-color: #41bdd3;
+	--color-main: #e1e1e1;
+	--color-hover: white;
+
+	--accent-main: #b00000;
+	--accent-hover: red;
+
+	--background-dark-one: black;
 
 	--font-weight: 500;
+
+	--slide-image-large: 700px;
+	--slide-image-medium: 600px;
+	--slide-image-small: 400px;
+	--slide-image-smaller: 280px;
+	--slide-image-smallest: 200px;
+
+	--button-underline-size: 3px;
+	--button-scale-amount: 1.2;
+
 }
 
 ::selection {
-	background: var(--highlight-color);
+	background: var(--accent-hover);
 }
 
 *,
@@ -17,16 +33,15 @@
 }
 
 html {
-	background:black;
-	color: white;
-	font-size: 12pt;
+	background:var(--background-dark-one);
+	color: var(--color-main);
 
+	font-size: 12pt;
 	font-family: "Roboto", sans-serif;
 	font-optical-sizing: auto;
 	font-weight: var(--font-weight);
 	font-style: normal;
 	font-variation-settings: "wdth" 100;
-
 }
 
 /*#hakkimizda, #hizmetlerimiz, #iletisim, .nav-layout {

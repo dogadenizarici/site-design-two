@@ -1,3 +1,5 @@
+
+// ############### NAVBAR ###############
 /*
  * Function to check the window width and deactivate the sidebar if necessary
  */
@@ -15,34 +17,6 @@ window.addEventListener('resize', sidebarDeactivate);
 
 // Run the function once on page load in case the page is already small
 sidebarDeactivate();
-
-
-/*
- * Smooth scroll with offset
- */
-const navbar = document.getElementById("navbar");
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-	anchor.addEventListener("click", function(e) {
-		e.preventDefault();
-
-		// Get the target element using the href value
-		const targetElement = document.querySelector(this.getAttribute("href"));
-
-		// Set the offset value (navbar height)
-		const offset = navbar.getBoundingClientRect().height;
-
-		// Calculate the position to scroll to (target position minus the offset)
-		const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset + 1;
-
-		// Smoothly scroll to the calculated position
-		window.scrollTo({
-			top: targetPosition,
-			behavior: "smooth"
-		});
-	});
-});
-
 
 /*
  * Offseting the header so that navbar see trough
@@ -75,105 +49,12 @@ function changeNavbarBackground() {
 	}
 }
 
-
+// ############### SLIDER ###############
 /*
  * Header slider
  */
-// document.addEventListener("DOMContentLoaded", function() {
-// 	const sliderContainer = document.querySelector('.slider-container');
-// 	const progressBar = document.getElementById('progress-bar');
-// 	const progress = document.querySelector('.progress');
-// 	const indicators = document.querySelectorAll('.indicator');
-// 	const slides = document.querySelectorAll('.slide');
-// 	let currentSlideIndex = 0;
-// 	let timer;
-// 	const slideChangeInterval = 3000; // 3 seconds
-// 	let progressWidth = 0;
-// 	let lastTime = 0;
-//
-// 	// Function to update the progress bar smoothly
-// 	function updateProgressBar(timestamp) {
-// 		if (!lastTime) lastTime = timestamp; // Initialize the last timestamp on the first call
-// 		const deltaTime = timestamp - lastTime; // Time elapsed in ms
-// 		lastTime = timestamp;
-//
-// 		// Calculate the amount of progress to add based on elapsed time
-// 		const progressIncrement = (100 / slideChangeInterval) * deltaTime;
-//
-// 		progressWidth += progressIncrement;
-// 		progress.style.width = progressWidth + '%';
-//
-// 		if (progressWidth >= 100) {
-// 			changeSlide();
-// 			resetProgressBar();
-// 		} else {
-// 			// Request the next frame for smooth animation
-// 			requestAnimationFrame(updateProgressBar);
-// 		}
-// 	}
-//
-// 	// Function to reset the progress bar
-// 	function resetProgressBar() {
-// 		progressWidth = 0;
-// 		progress.style.width = '0%';
-// 		lastTime = 0; // Reset the timestamp for the next cycle
-// 	}
-//
-// 	// Function to change the slide
-// 	function changeSlide() {
-// 		currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-// 		sliderContainer.scrollTo({
-// 			left: currentSlideIndex * window.innerWidth,
-// 			behavior: 'smooth'
-// 		});
-// 	}
-//
-// 	// Function to select a specific slide by indicator
-// 	function goToSlide(slideIndex) {
-// 		currentSlideIndex = slideIndex;
-// 		sliderContainer.scrollTo({
-// 			left: currentSlideIndex * window.innerWidth,
-// 			behavior: 'smooth'
-// 		});
-// 		resetProgressBar();
-// 	}
-//
-// 	// Add event listeners for the indicators
-// 	indicators.forEach((indicator, index) => {
-// 		indicator.addEventListener('click', () => {
-// 			goToSlide(index);
-// 		});
-// 	});
-//
-// 	// Function to start the auto-scrolling timer
-// 	function startAutoScroll() {
-// 		// Clear any existing timers to avoid multiple intervals running
-// 		if (timer) {
-// 			cancelAnimationFrame(timer);
-// 		}
-//
-// 		// Start the smooth animation for progress bar
-// 		requestAnimationFrame(updateProgressBar);
-// 	}
-//
-// 	// Function to reset the timer and progress bar when manually scrolling
-// 	function handleManualScroll() {
-// 		const scrollPosition = sliderContainer.scrollLeft;
-// 		currentSlideIndex = Math.round(scrollPosition / window.innerWidth);
-// 		resetProgressBar();
-// 		startAutoScroll(); // Restart the timer after manual scroll
-// 	}
-//
-// 	// Listen to scroll event to detect manual scrolling
-// 	sliderContainer.addEventListener('scroll', handleManualScroll);
-//
-// 	// Start the auto-scrolling when the page loads
-// 	startAutoScroll();
-// });
-
-
 /*
- * Header slider mouse click scroll
+ * Header slider mouse click scroll and button navigation with smooth behavior
  */
 const slider = document.querySelector(".slider-container");
 let isDown = false;
@@ -181,6 +62,10 @@ let startX;
 let scrollLeft;
 let scrollForce = 2;
 let slideWidth = slider.clientWidth; // Assuming each slide takes up the full width of the container
+
+// Left and Right buttons
+const leftButton = document.getElementById('slider-left-button');
+const rightButton = document.getElementById('slider-right-button');
 
 // Function to update the slideWidth
 function updateSlideWidth() {
@@ -192,7 +77,7 @@ slider.addEventListener("mousedown", (event) => {
 	isDown = true;
 	startX = event.pageX - slider.offsetLeft;
 	scrollLeft = slider.scrollLeft;
-	slider.style.cursor = "grabbing";
+
 
 	// Disable scroll snap while dragging
 	slider.style.scrollSnapType = 'none';
@@ -248,28 +133,38 @@ window.addEventListener('resize', () => {
 	slider.style.scrollSnapType = 'x mandatory';
 });
 
-/*
- * Collapsible part
- */
-var coll = document.getElementById("collapsible");
-
-coll.addEventListener("click", function() {
-	this.classList.toggle("active");
-	var content = this.nextElementSibling;
-	if (content.style.display === "block") {
-		content.style.display = "none";
+// Handle button click functionality with smooth scroll
+leftButton.addEventListener('click', () => {
+	// Scroll to the previous slide with smooth transition
+	const newScrollLeft = slider.scrollLeft - slideWidth;
+	// Check if we're at the first slide (to loop)
+	if (newScrollLeft < 0) {
+		slider.scrollTo({
+			left: slider.scrollWidth - slideWidth,
+			behavior: 'smooth',
+		});
 	} else {
-		content.style.display = "block";
+		slider.scrollTo({
+			left: newScrollLeft,
+			behavior: 'smooth',
+		});
 	}
 });
 
-coll.addEventListener("click", function() {
-	this.classList.toggle("active");
-	var content = this.nextElementSibling;
-	if (content.style.maxHeight){
-		content.style.maxHeight = null;
+rightButton.addEventListener('click', () => {
+	// Scroll to the next slide with smooth transition
+	const newScrollLeft = slider.scrollLeft + slideWidth;
+	// Check if we've reached the last slide (to loop)
+	if (newScrollLeft >= slider.scrollWidth) {
+		slider.scrollTo({
+			left: 0,
+			behavior: 'smooth',
+		});
 	} else {
-		content.style.maxHeight = content.scrollHeight + "px";
+		slider.scrollTo({
+			left: newScrollLeft,
+			behavior: 'smooth',
+		});
 	}
 });
 
@@ -289,48 +184,12 @@ function addAnimation() {
 		const scrollerInner = scroller.querySelector(".inner-scroller");
 		const scrollerContent = Array.from(scrollerInner.children);
 
-		for (let i = 0; i < 2; i++) {
+		for (let i = 0; i < 5; i++) {
 			scrollerContent.forEach(item => {
 				const duplicatedItem = item.cloneNode(true);
 				duplicatedItem.setAttribute("area-hidden", true);
 				scrollerInner.appendChild(duplicatedItem);
 			})
-		}
-	});
-}
-
-/*
- * Scirpts for modal
- */
-// Get all modal buttons
-var modalBtns = document.querySelectorAll('.card-button');
-
-// Loop through each button and add event listener
-modalBtns.forEach(function(btn) {
-	btn.onclick = function() {
-		var modalId = this.getAttribute('data-modal');
-		var modal = document.getElementById(modalId);
-		modal.style.display = "flex"; // Use flex for centering
-	}
-});
-
-// Get all close buttons
-var closeBtns = document.querySelectorAll('.close');
-
-// Loop through each close button and add event listener
-closeBtns.forEach(function(span) {
-	span.onclick = function() {
-		var modal = this.closest('.modal');
-		modal.style.display = "none";
-	}
-});
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-	var modals = document.querySelectorAll('.modal');
-	modals.forEach(function(modal) {
-		if (event.target == modal) {
-			modal.style.display = "none";
 		}
 	});
 }

@@ -140,13 +140,10 @@
 @media (max-width: 740px) {
 	#slider .slide-content {
 		width: var(--slide-image-small);
-
-
 	}
 }
 
 @media (max-width: 550px) {
-
 	#slider-left-button,
 	#slider-right-button {
 		bottom: 0;

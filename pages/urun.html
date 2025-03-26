@@ -15,21 +15,20 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
 		rel="stylesheet">
 
-	<link rel="stylesheet" href="styles/base.css">
-	<link rel="stylesheet" href="styles/navbar.css">
-	<link rel="stylesheet" href="styles/slider.css">
-	<link rel="stylesheet" href="styles/footer.css">
-	<link rel="stylesheet" href="styles/index.css">
+	<link rel="stylesheet" href="../styles/base.css">
+	<link rel="stylesheet" href="../styles/navbar.css">
+	<link rel="stylesheet" href="../styles/footer.css">
+	<link rel="stylesheet" href="../styles/urun.css">
 
-	<script defer src="scripts/base.js"></script>
-	<script defer src="scripts/index.js"></script>
+	<script defer src="../scripts/base.js"></script>
+	<script defer src="../scripts/urun.js"></script>
 </head>
 
 <body>
 	<nav id="navbar">
 		<div class="nav-layout">
-			<a href="index.html">
-				<img class="logo-main" src="images/logo.png" alt="Simulasyon Robotic Logo">
+			<a href="../index.html">
+				<img class="logo-main" src="../images/logo.png" alt="Simulasyon Robotic Logo">
 			</a>
 
 			<input type="checkbox" id="sidebar-active">
@@ -50,108 +49,93 @@
 					</svg>
 				</label>
 
-				<a class="menu-button" href="pages/urunlerimiz.html">ÜRÜNLERİMİZ</a>
+				<a class="menu-button" href="../pages/urunlerimiz.html">ÜRÜNLERİMİZ</a>
 				<a class="menu-button" href="#hakkimizda">HAKKIMIZDA</a>
 				<a class="menu-button" href="#iletisim">İLETİŞİM</a>
 			</div>
 		</div>
 	</nav>
 
-	<header>
-		<div id="slider">
-
-			<div class="slider-container">
-
-				<div class="slide" id="slide-one">
-					<div class="slide-content">
-						<div class="slide-text">
-							<h1>Slayt 1</h1>
-							<a href="pages/urun.html">İNCELE</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="slide" id="slide-two">
-					<div class="slide-content">
-						<div class="slide-text">
-							<h1>Slayt 2</h1>
-							<a href="pages/urun.html">İNCELE</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="slide" id="slide-two">
-					<div class="slide-content">
-						<div class="slide-text">
-							<h1>Slayt 3</h1>
-							<a href="pages/urun.html">İNCELE</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="slide" id="slide-two">
-					<div class="slide-content">
-						<div class="slide-text">
-							<h1>Slayt 4</h1>
-							<a href="pages/urun.html">İNCELE</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="slide" id="slide-two">
-					<div class="slide-content">
-						<div class="slide-text">
-							<h1>Slayt 5</h1>
-							<a href="pages/urun.html">İNCELE</a>
-						</div>
-					</div>
-				</div>
+	<section id="product-container">
+		<div class="gallery">
+			<a href="../images/test.png" class="image">
+				<img src="../images/test.png" alt="Image 1">
+			</a>
+			<div class="images-others">
+				<a href="../images/mekik-sim.jpg" class="image">
+					<img src="../images/mekik-sim.jpg" alt="Image 2">
+				</a>
+				<a href="../images/koltuk.jpeg" class="image">
+					<img src="../images/koltuk.jpeg" alt="Image 3">
+				</a>
+				<a href="../images/sinema.jpeg" class="image">
+					<img src="../images/sinema.jpeg" alt="Image 4">
+				</a>
+				<a href="../images/sinema.jpeg" class="image">
+					<img src="../images/sinema.jpeg" alt="Image 4">
+				</a>
 
 			</div>
+		</div>
 
-			<button id="slider-left-button">
-				<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+		<div id="lightbox" class="lightbox" role="dialog" aria-labelledby="lightbox-title" aria-hidden="true">
+			<button class="nav-button prev">
+				<svg class="modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
 					<path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
 				</svg>
 			</button>
 
-			<button id="slider-right-button">
-				<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+			<img id="lightbox-image" src="" alt="Lightbox Image">
+
+			<button class="nav-button next">
+				<svg class="modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
 					<path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
 				</svg>
 			</button>
-		</div>
-	</header>
 
-	<section>
-		<h1>Yazı yazı yazı yazı yazı yazı Yazı</h1>
-		<p>Yazı yazı yazıYazı yazı yazıYazı yazı yazı</p>
+			<span class="close" aria-label="Close lightbox">
+				<svg class="modal-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+					<path
+						d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+				</svg>
+			</span>
+
+			<div class="image-number" id="image-number">1 / 4</div>
+		</div>
+
+
+		<div class="content">
+			<h1>Ürün Adı</h1>
+			<p>Ürün bilgisi</p>
+			<p>Yazı yazı yazı yazı yazı yazı yazı yazı yazı yazı yazı yazı yazı yazı yazı yazı</p>
+		</div>
+
 	</section>
 
 	<footer>
 		<div id="footer-column-one">
 			<div class="scroller">
 				<div class="inner-scroller">
-					<img src="images/aselsan.png">
-					<img src="images/ogm.png">
-					<img src="images/rtb.png">
-					<img src="images/toki.png">
-					<img src="images/trabzon.png">
+					<img src="../images/aselsan.png">
+					<img src="../images/ogm.png">
+					<img src="../images/rtb.png">
+					<img src="../images/toki.png">
+					<img src="../images/trabzon.png">
 				</div>
 			</div>
 
 			<div class="logo-icon-container">
-				<img class="logo-main" src="images/logo.png" alt="Simulasyon Robotic Logo">
+				<img class="logo-main" src="../images/logo.png" alt="Simulasyon Robotic Logo">
 				<div class="icon-links">
 					<a href="https://www.instagram.com/simulasyon_robotic/" target="_blank" rel="noopener noreferrer">
-						<img src="images/itg.png" alt="Instagram Link">
+						<img src="../images/itg.png" alt="Instagram Link">
 					</a>
 					<a href="https://simulasyonrobotic.sahibinden.com/" target="_blank" rel="noopener noreferrer">
-						<img src="images/sahibinden.png" alt="Sahibinden Link">
+						<img src="../images/sahibinden.png" alt="Sahibinden Link">
 					</a>
 					<a href="https://api.whatsapp.com/send?phone=0542%20123%2063%2010&text=Merhaba%20sizlere internet%20siteniz%20%C3%BCzerinden%20bilgi%20almak%20i%C3%A7in%20ula%C5%9F%C4%B1yorum."
 						target="_blank" rel="noopener noreferrer">
-						<img src="images/wp.png" alt="Whatsapp Link">
+						<img src="../images/wp.png" alt="Whatsapp Link">
 					</a>
 				</div>
 			</div>

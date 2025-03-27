@@ -20,10 +20,11 @@
 
 	--gradient-one: linear-gradient(0deg, rgba(30, 30, 30, 1) 50%, rgba(0, 0, 0, 1) 80%);
 	--gradient-two: linear-gradient(0deg, rgba(30, 30, 30, 1) 80%, rgba(0, 0, 0, 1) 100%);
+	--gradient-three: linear-gradient(0deg, rgba(30, 30, 30, 1) 70%, rgba(0, 0, 0, 1) 100%);
 }
 
 ::selection {
-	background: var(--accent-hover);
+	background: var(--accent-main);
 }
 
 *,

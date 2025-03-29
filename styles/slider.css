@@ -82,23 +82,35 @@
 
 
 #slide-one .slide-content {
-	background-image: url(../images/test.png);
+	background-image: url(../images/2-dof.PNG);
 }
 
 #slide-two .slide-content {
-	background-image: url(../images/test.png);
+	background-image: url(../images/3-dof.PNG);
 }
 
 #slide-three .slide-content {
-	background-image: url(../images/test.png);
+	background-image: url(../images/6-dof.PNG);
 }
 
 #slide-four .slide-content {
-	background-image: url(../images/test.png);
+	background-image: url(../images/2-dof-mobil.PNG);
 }
 
 #slide-five .slide-content {
-	background-image: url(../images/test.png);
+	background-image: url(../images/araba-simulatörü.PNG);
+}
+
+#slide-six .slide-content {
+background-image: url(../images/ucak-simulatoru.PNG);
+}
+
+#slide-seven .slide-content {
+background-image: url(../images/test.png);
+}
+
+#slide-eight .slide-content {
+background-image: url(../images/test.png);
 }
 
 #slider .svg-icon {
